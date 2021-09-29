@@ -1,10 +1,368 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+	<link rel="stylesheet" href="home.css">
+	<link rel="stylesheet" href="footer.css">
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+
+    <title>contact management people directory - Bootdey.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 </head>
 <body>
+
+	<br><br>
+	<div class="container" align="center"  >
+		<div class="card2" >
+			<div class="card-body" style="color: #007b5e;">
+				<h2 class="card-title" id="res"><b>My Contacts -v1.0</b></h2>
+			</h3>
+			<hr>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="col-md-12">
+			<div class="page-people-directory">
+				<div class="row">
+					<div class="col-md-3">
+						<h5 class="page-title"><b>Contacts</b></h5>
+						<ul class="nav nav-pills nav-stacked nav-contacts">
+							<li class="active">
+								<a href="#">
+									All Contacts
+									<span class="badge pull-right">128+</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Add Contact
+									<span class="badge pull-right">87</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Exit
+									<span class="badge pull-right">10</span>
+								</a>
+							</li>
+						</ul>
+						
+						<br>
+						
+						<h5><b>My Favorites</b></h5>
+						<div class="list-group people-group">
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">John Wayne</h4>
+										<small>Software Engineer</small>
+									</div>
+								</div>
+							</a>
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">Jane Dane</h4>
+										<small>Software Engineer</small>
+									</div>
+								</div>
+							</a>
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">Juan Dela Cruz</h4>
+										<small>Software Engineer</small>
+									</div>
+								</div>
+							</a>
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">Jose Cruz</h4>
+										<small>Software Engineer</small>
+									</div>
+								</div>
+							</a>
+						</div>
+						
+					</div>
+					<div class="col-md-9">
+						<div class="well">
+							<div class="row">
+								<div class="col-md-9">
+									<input type="text" placeholder="Search people" class="form-control">
+								</div>
+								<div class="col-md-3">
+									<div class="btn-group" style="display:block">
+									  <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" style="width: 100%; border-radius: 0px; background: white;  color: gray; border-color: #ddd;">Last 10 days <span class="caret"></span></button>
+									  <ul class="dropdown-menu bullet pull-right animated pulse margin-top-45">
+										<li>
+										  <input type="radio" id="ex1_1" name="ex1" value="1" checked="">
+										  <label for="ex1_1">Fullname</label>
+										</li>
+										<li>
+										  <input type="radio" id="ex1_2" name="ex1" value="2">
+										  <label for="ex1_2">Company</label>
+										</li>
+										<li>
+										  <input type="radio" id="ex1_3" name="ex1" value="3">
+										  <label for="ex1_3">Position</label>
+										</li>
+									  </ul>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-6">
+								<h3>All Contacts</h3>
+							</div>
+							
+						</div>
+						
+						<div class="list-group contact-group">
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">John Doe <small>Software Engineer at Facebook, Inc.</small></h4>
+										<div class="media-content">
+											<i class="fa fa-map-marker"></i> San Francisco, California, United States
+											<ul class="list-unstyled">
+												<li><i class="fa fa-skype"></i> jdoe.doe</li>
+												<li><i class="fa fa-mobile"></i> +63 912 212 2451</li>
+												<li><i class="fa fa-envelope-o"></i> joedoe@email.com</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</a>
+							
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">John Doe <small>Software Engineer at Facebook, Inc.</small></h4>
+										<div class="media-content">
+											<i class="fa fa-map-marker"></i> San Francisco, California, United States
+											<ul class="list-unstyled">
+												<li><i class="fa fa-skype"></i> jdoe.doe</li>
+												<li><i class="fa fa-mobile"></i> +63 912 212 2451</li>
+												<li><i class="fa fa-envelope-o"></i> joedoe@email.com</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</a>
+							
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">John Doe <small>Software Engineer at Facebook, Inc.</small></h4>
+										<div class="media-content">
+											<i class="fa fa-map-marker"></i> San Francisco, California, United States
+											<ul class="list-unstyled">
+												<li><i class="fa fa-skype"></i> jdoe.doe</li>
+												<li><i class="fa fa-mobile"></i> +63 912 212 2451</li>
+												<li><i class="fa fa-envelope-o"></i> joedoe@email.com</li>
+											</ul>
+										</div>
+									</div>
+								</div><
+							</a>
+							
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">John Doe <small>Software Engineer at Facebook, Inc.</small></h4>
+										<div class="media-content">
+											<i class="fa fa-map-marker"></i> San Francisco, California, United States
+											<ul class="list-unstyled">
+												<li><i class="fa fa-skype"></i> jdoe.doe</li>
+												<li><i class="fa fa-mobile"></i> +63 912 212 2451</li>
+												<li><i class="fa fa-envelope-o"></i> joedoe@email.com</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</a>
+							
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">John Doe <small>Software Engineer at Facebook, Inc.</small></h4>
+										<div class="media-content">
+											<i class="fa fa-map-marker"></i> San Francisco, California, United States
+											<ul class="list-unstyled">
+												<li><i class="fa fa-skype"></i> jdoe.doe</li>
+												<li><i class="fa fa-mobile"></i> +63 912 212 2451</li>
+												<li><i class="fa fa-envelope-o"></i> joedoe@email.com</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</a>
+							
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">John Doe <small>Software Engineer at Facebook, Inc.</small></h4>
+										<div class="media-content">
+											<i class="fa fa-map-marker"></i> San Francisco, California, United States
+											<ul class="list-unstyled">
+												<li><i class="fa fa-skype"></i> jdoe.doe</li>
+												<li><i class="fa fa-mobile"></i> +63 912 212 2451</li>
+												<li><i class="fa fa-envelope-o"></i> joedoe@email.com</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="pull-right">
+							<ul class="pagination pagination-split pagination-sm pagination-contact">
+								<li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="modal modal-pull-right" data-easein="fadeInRight" data-easeout="fadeOutRight" id="modal-pull-right-add" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+					<div class="modal-dialog">
+						<div class="modal-content animated fadeOutRight">
+							<div class="modal-body">
+								<div class="row modal-close">
+									<div class="col-md-12 padding-bottom-8 padding-top-8 bg-silver">
+										<h4 class="pull-left"><b>Create New Contact</b></h4>
+										<ul class="list-unstyled list-inline text-right">
+											<li class="close-right-modal"><span class="fa fa-times fa-2x" data-dismiss="modal"></span></li>
+										</ul>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="contact-add-content">
+											<form class="form-horizontal tabular-form margin-top-10">
+												<div class="form-group">
+													<label for="name" class="col-sm-2 control-label">Name</label>
+													<div class="col-sm-10 tabular-border">
+														<input type="text" class="form-control" id="name" placeholder="Full Name">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="email" class="col-sm-2 control-label">Email</label>
+													<div class="col-sm-10 tabular-border">
+														<input type="text" class="form-control" id="email" placeholder="Email">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="phone" class="col-sm-2 control-label">Phone</label>
+													<div class="col-sm-10 tabular-border">
+														<input type="text" class="form-control" id="phone" placeholder="Phone">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="address" class="col-sm-2 control-label">Address</label>
+													<div class="col-sm-10 tabular-border">
+														<input type="text" class="form-control" id="address" placeholder="Address">
+													</div>
+												</div>
+												<div class="form-actions">
+													<button type="button" class="btn btn-silver btn-flat">Cancel</button> <button type="button" class="btn btn-green btn-flat">Save Changes</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!------ Include the above in your HEAD tag ---------->
+
+	<!-- Footer -->
+	<section id="footer">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-xs-12 ">
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item"><a
+							href="https://github.com/Nawaz2000"><i class="fa fa-github"></i></a></li>
+						<li class="list-inline-item"><a
+							href="https://www.linkedin.com/in/md-nawaz-rahaman-047b56177/"><i
+								class="fa fa-linkedin"></i></a></li>
+						<li class="list-inline-item"><a
+							href="https://www.instagram.com/doodle_nawaz/"><i
+								class="fa fa-instagram"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i
+								class="fa fa-google-plus"></i></a></li>
+						<li class="list-inline-item"><a
+							href="mailto:mail2nawaz2000@gmail.com" target="_blank"><i
+								class="fa fa-envelope"></i></a></li>
+					</ul>
+				</div>
+				<hr>
+			</div>
+			<div class="row">
+				<div
+					class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p class="h6">
+						© 2021 All right Reversed. <a class="text-green ml-2"
+							href="https://github.com/Nawaz2000" target="_blank">Md. Nawaz
+							Rahaman</a>
+					</p>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</section>
+	<!-- ./Footer -->
 
 </body>
 </html>
