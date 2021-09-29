@@ -1,6 +1,5 @@
 package com.nawaz2000.contactmanager.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,46 +7,44 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "contactdetails")
+public class ContactDetails {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "fname")
-	private String fName;
+	private String name;
 	
-	@Column(name = "lname")
-	private String lName;
-	
-	private String username;
+	private String gender;
 	
 	private String email;
 	
-	private String password;
+	private String position;
 	
 	private String phone;
 	
 	private String address;
 	
 	private String image;
+	
+	private String userid;
 
-	public User() {
+	public ContactDetails() {
 		super();
 	}
 
-	public User(String fName, String lName, String username, String email, String password, String phone,
-			String address, String image) {
+	public ContactDetails(String name, String gender, String email, String position, String phone, String address,
+			String image, String userid) {
 		super();
-		this.fName = fName;
-		this.lName = lName;
-		this.username = username;
+		this.name = name;
+		this.gender = gender;
 		this.email = email;
-		this.password = password;
+		this.position = position;
 		this.phone = phone;
 		this.address = address;
 		this.image = image;
+		this.userid = userid;
 	}
 
 	public int getId() {
@@ -58,28 +55,20 @@ public class User {
 		this.id = id;
 	}
 
-	public String getFname() {
-		return fName;
+	public String getName() {
+		return name;
 	}
 
-	public void setFname(String fName) {
-		this.fName = fName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getLname() {
-		return lName;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setLname(String lName) {
-		this.lName = lName;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public String getEmail() {
@@ -90,12 +79,12 @@ public class User {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPosition() {
+		return position;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPosition(String position) {
+		this.position = position;
 	}
 
 	public String getPhone() {
@@ -122,10 +111,18 @@ public class User {
 		this.image = image;
 	}
 
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", fName=" + fName + ", lName=" + lName + ", username=" + username + ", email="
-				+ email + ", password=" + password + ", phone=" + phone + ", address=" + address + ", image=" + image
+		return "ContactDetails [id=" + id + ", name=" + name + ", gender=" + gender + ", email=" + email + ", position="
+				+ position + ", phone=" + phone + ", address=" + address + ", image=" + image + ", userid=" + userid
 				+ "]";
 	}
 	
