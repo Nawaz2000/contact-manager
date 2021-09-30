@@ -8,6 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/footer.css">
+	
+	
+	<link rel="stylesheet" href="css/home.css">
+	
+	
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	
+	
 		
 	<title>Add contact</title>
 </head>
@@ -28,7 +37,88 @@
         <div class="row">
 
             <div class="col mt-3 justify-content-right">
-
+            	<div class="page-people-directory">
+				
+				<div class="col-md-3">
+						<h5 class="page-title"><b>Contacts</b></h5>
+						<ul class="nav nav-pills nav-stacked nav-contacts">
+							<li class="active">
+								<a href="#">
+									All Contacts
+									<span class="badge pull-right" th:text="${totalContacts}"></span>
+								</a>
+							</li>
+							<li>
+								<a th:href="@{/addContact}">
+									Add Contact
+									
+								</a>
+							</li>
+							<li>
+								<a th:href="@{/logout}">
+									Exit
+									
+								</a>
+							</li>
+						</ul>
+						
+						<br>
+						
+						<h5><b>My Favorites</b></h5>
+						<div class="list-group people-group">
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">John Wayne</h4>
+										<small>Software Engineer</small>
+									</div>
+								</div>
+							</a>
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">Jane Dane</h4>
+										<small>Software Engineer</small>
+									</div>
+								</div>
+							</a>
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">Juan Dela Cruz</h4>
+										<small>Software Engineer</small>
+									</div>
+								</div>
+							</a>
+							<a href="#" class="list-group-item">
+								<div class="media">
+									<div class="pull-left">
+										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="...">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">Jose Cruz</h4>
+										<small>Software Engineer</small>
+									</div>
+								</div>
+							</a>
+						</div>
+						
+					</div>
+					
+					</div>
+				
+				
+				
+				
                 <form th:action="@{/addContact}" th:object="${newContact}" method="post" enctype="multipart/form-data">
                     <div class="form-row">
                         
@@ -111,7 +201,7 @@
 			<div class="row">
 				<div
 					class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-					<p class="h6">
+					<p class="h5">
 						© 2021 All right Reversed. <a class="text-green ml-2"
 							href="https://github.com/Nawaz2000" target="_blank">Md. Nawaz
 							Rahaman</a>
