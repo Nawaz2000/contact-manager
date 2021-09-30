@@ -28,14 +28,14 @@ public class ContactDetails {
 	
 	private String image;
 	
-	private String userid;
+	private int userid;
 
 	public ContactDetails() {
 		super();
 	}
 
 	public ContactDetails(String name, String gender, String email, String position, String phone, String address,
-			String image, String userid) {
+			String image, int userid) {
 		super();
 		this.name = name;
 		this.gender = gender;
@@ -111,12 +111,12 @@ public class ContactDetails {
 		this.image = image;
 	}
 
-	public String getUserid() {
+	public int getUserid() {
 		return userid;
 	}
 
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setUserid(int currUserId) {
+		this.userid = currUserId;
 	}
 
 	@Override

@@ -29,42 +29,38 @@
 
             <div class="col mt-3 justify-content-right">
 
-                <form method="post" enctype="multipart/form-data">
+                <form th:action="@{/addContact}" th:object="${newContact}" method="post" enctype="multipart/form-data">
                     <div class="form-row">
-                        <input type='hidden' name="id">
+                        
                         <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">First name: </label>
-                            <input type="text" name='name' class="form-control" id="validationCustom01" placeholder="First name"
+                            <label for="validationCustom01">Name: </label>
+                            <input type="text" name='fName' th:field="*{name}" class="form-control" id="validationCustom01" placeholder="First name"
                                  required>
                         </div>
+                        
                         <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">Last name: </label>
-                            <input type="text" name='name' class="form-control" id="validationCustom01" placeholder="Last name"
-                                 required>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">User name: </label>
-                            <input type="text" name='name' class="form-control" id="validationCustom01" placeholder="User name"
+                            <label for="validationCustom01">Gender: </label>
+                            <input type="text" name='gender' th:field="*{gender}" class="form-control" id="validationCustom01" placeholder="User name"
                                  required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Email: </label>
-                            <input type="text" name='name' class="form-control" id="validationCustom01" placeholder="Email"
+                            <input type="text" name='email' th:field="*{email}" class="form-control" id="validationCustom01" placeholder="Email"
                                  required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">Password: </label>
-                            <input type="text" name='name' class="form-control" id="validationCustom01" placeholder="Password"
+                            <label for="validationCustom01">Position: </label>
+                            <input type="text" name='position' th:field="*{position}" class="form-control" id="validationCustom01" placeholder="Password"
                                  required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom02">Phone</label>
-                            <input type="text" name='price' class="form-control" id="validationCustom02" placeholder="Phone"
+                            <input type="text" name='phone' th:field="*{phone}" class="form-control" id="validationCustom02" placeholder="Phone"
                                  required>
                         </div><br>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom03">Cover pic</label>
-                            <input type="file" name='image' class="form-control" accept="image/png, image/jpeg, image/jpg" id="validationCustom03" placeholder="Cover image" >
+                            <input type="file" name='image12' class="form-control" accept="image/png, image/jpeg, image/jpg" id="validationCustom03" placeholder="Cover image" >
                         </div>
                         
                         
@@ -74,7 +70,7 @@
                         
                         <div class="col-md-10 mb-3">
                             <label for="validationCustom02">Address</label>
-                            <textarea class="form-control" name='descrip' id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" name='address' th:field="*{address}" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
 
 
