@@ -72,6 +72,7 @@ public class HomeController {
 		
 		List<ContactDetails> contacts = contactDAO.findAll();
 		model.addAttribute("allContacts", contacts);
+		model.addAttribute("totalContacts", contacts.size());
 		return "home";
 	}
 	

@@ -35,19 +35,19 @@
 							<li class="active">
 								<a href="#">
 									All Contacts
-									<span class="badge pull-right">128+</span>
+									<span class="badge pull-right" th:text="${totalContacts}"></span>
 								</a>
 							</li>
 							<li>
 								<a th:href="@{/addContact}">
 									Add Contact
-									<span class="badge pull-right">87</span>
+									
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a th:href="@{/logout}">
 									Exit
-									<span class="badge pull-right">10</span>
+									
 								</a>
 							</li>
 						</ul>
