@@ -144,24 +144,27 @@
 						
 						<tr th:each="contact: ${allContacts}">
 							<div class="list-group">
-								<a href="#" class="list-group-item">
+								<div href="#" class="list-group-item">
 									<div class="media">
 										<div class="pull-left">
 											<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
 										</div>
 										<div class="media-body">
-											<h4 class="media-heading" th:text="${contact.name}"></h4> <p th:text="${contact.position}">
+											<h4 class="media-heading"><b th:text="${contact.name}"></b></h4> <p th:text="${contact.position}">
 											<div class="media-content">
 												<i class="fa fa-map-marker" th:text="' ' + ${contact.address}"></i>
 												<ul class="list-unstyled">
 													<li><i class="fa fa-mars-stroke"></i><span th:text="' ' + ${contact.gender}"></span></li>
 													<li><i class="fa fa-mobile"></i><span th:text="' ' + ${contact.phone}"></span></li>
 													<li><i class="fa fa-envelope-o"></i><span th:text="' ' + ${contact.email}"></span></li>
-												</ul>
+													
+												</ul>												
 											</div>
 										</div>
 									</div>
-								</a>
+									<a th:href="@{/updateContact(param=${contact.id})}" type="button" class="btn btn-primary">Update</a>
+									<a th:href="@{/deleteContact(param=${contact.id})}" type="button" class="btn btn-danger">Delete</a>
+								</div>
 							</div>
 						</tr>
 						
