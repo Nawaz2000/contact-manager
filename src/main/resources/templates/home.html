@@ -140,119 +140,35 @@
 						</div>
 						
 						<div class="list-group contact-group">
-							<a href="#" class="list-group-item">
-								<div class="media">
-									<div class="pull-left">
-										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
-									</div>
-									<div class="media-body">
-										<h4 class="media-heading">John Doe <small>Software Engineer at Facebook, Inc.</small></h4>
-										<div class="media-content">
-											<i class="fa fa-map-marker"></i> San Francisco, California, United States
-											<ul class="list-unstyled">
-												<li><i class="fa fa-skype"></i> jdoe.doe</li>
-												<li><i class="fa fa-mobile"></i> +63 912 212 2451</li>
-												<li><i class="fa fa-envelope-o"></i> joedoe@email.com</li>
-											</ul>
+						
+						
+						<tr th:each="contact: ${allContacts}">
+							<div class="list-group">
+								<a href="#" class="list-group-item">
+									<div class="media">
+										<div class="pull-left">
+											<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading" th:text="${contact.name}"></h4> <p th:text="${contact.position}">
+											<div class="media-content">
+												<i class="fa fa-map-marker" th:text="' ' + ${contact.address}"></i>
+												<ul class="list-unstyled">
+													<li><i class="fa fa-mars-stroke"></i><span th:text="' ' + ${contact.gender}"></span></li>
+													<li><i class="fa fa-mobile"></i><span th:text="' ' + ${contact.phone}"></span></li>
+													<li><i class="fa fa-envelope-o"></i><span th:text="' ' + ${contact.email}"></span></li>
+												</ul>
+											</div>
 										</div>
 									</div>
-								</div>
-							</a>
+								</a>
+							</div>
+						</tr>
+						
+						
+												
 							
-							<a href="#" class="list-group-item">
-								<div class="media">
-									<div class="pull-left">
-										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="...">
-									</div>
-									<div class="media-body">
-										<h4 class="media-heading">John Doe <small>Software Engineer at Facebook, Inc.</small></h4>
-										<div class="media-content">
-											<i class="fa fa-map-marker"></i> San Francisco, California, United States
-											<ul class="list-unstyled">
-												<li><i class="fa fa-skype"></i> jdoe.doe</li>
-												<li><i class="fa fa-mobile"></i> +63 912 212 2451</li>
-												<li><i class="fa fa-envelope-o"></i> joedoe@email.com</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</a>
-							
-							<a href="#" class="list-group-item">
-								<div class="media">
-									<div class="pull-left">
-										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="...">
-									</div>
-									<div class="media-body">
-										<h4 class="media-heading">John Doe <small>Software Engineer at Facebook, Inc.</small></h4>
-										<div class="media-content">
-											<i class="fa fa-map-marker"></i> San Francisco, California, United States
-											<ul class="list-unstyled">
-												<li><i class="fa fa-skype"></i> jdoe.doe</li>
-												<li><i class="fa fa-mobile"></i> +63 912 212 2451</li>
-												<li><i class="fa fa-envelope-o"></i> joedoe@email.com</li>
-											</ul>
-										</div>
-									</div>
-								</div><
-							</a>
-							
-							<a href="#" class="list-group-item">
-								<div class="media">
-									<div class="pull-left">
-										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="...">
-									</div>
-									<div class="media-body">
-										<h4 class="media-heading">John Doe <small>Software Engineer at Facebook, Inc.</small></h4>
-										<div class="media-content">
-											<i class="fa fa-map-marker"></i> San Francisco, California, United States
-											<ul class="list-unstyled">
-												<li><i class="fa fa-skype"></i> jdoe.doe</li>
-												<li><i class="fa fa-mobile"></i> +63 912 212 2451</li>
-												<li><i class="fa fa-envelope-o"></i> joedoe@email.com</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</a>
-							
-							<a href="#" class="list-group-item">
-								<div class="media">
-									<div class="pull-left">
-										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="...">
-									</div>
-									<div class="media-body">
-										<h4 class="media-heading">John Doe <small>Software Engineer at Facebook, Inc.</small></h4>
-										<div class="media-content">
-											<i class="fa fa-map-marker"></i> San Francisco, California, United States
-											<ul class="list-unstyled">
-												<li><i class="fa fa-skype"></i> jdoe.doe</li>
-												<li><i class="fa fa-mobile"></i> +63 912 212 2451</li>
-												<li><i class="fa fa-envelope-o"></i> joedoe@email.com</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</a>
-							
-							<a href="#" class="list-group-item">
-								<div class="media">
-									<div class="pull-left">
-										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
-									</div>
-									<div class="media-body">
-										<h4 class="media-heading">John Doe <small>Software Engineer at Facebook, Inc.</small></h4>
-										<div class="media-content">
-											<i class="fa fa-map-marker"></i> San Francisco, California, United States
-											<ul class="list-unstyled">
-												<li><i class="fa fa-skype"></i> jdoe.doe</li>
-												<li><i class="fa fa-mobile"></i> +63 912 212 2451</li>
-												<li><i class="fa fa-envelope-o"></i> joedoe@email.com</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</a>
+																								
 						</div>
 						<div class="pull-right">
 							<ul class="pagination pagination-split pagination-sm pagination-contact">
