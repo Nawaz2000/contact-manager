@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nawaz2000.contactmanager.dao.ContactDetailsDAO;
 import com.nawaz2000.contactmanager.dao.UserDAO;
@@ -25,6 +27,22 @@ public class HomeController {
 		List<ContactDetails> contacts = contactDAO.findAll();
 		model.addAttribute("allContacts", contacts);
 		return "home";
+	}
+	
+	@GetMapping("/deleteContact")
+	public String updateContact(@RequestParam(name = "param") String param) {
+		contactDAO.deleteById(Integer.parseInt(param));
+		return "home";
+	}
+	
+	@PostMapping("/updateContact")
+	public String updateContact() {
+		return "home";
+	}
+	
+	@GetMapping("/addContact")
+	public String addContact() {
+		return "add-contact";
 	}
 	
 }

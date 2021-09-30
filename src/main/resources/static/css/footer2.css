@@ -33,7 +33,7 @@ section .section-title {
 }
 #footer ul.social li a i {
 	text-align:center;
-    margin-right: 5px;
+    margin-right: 10px;
 	font-size:25px;
 	-webkit-transition: .5s all ease;
 	-moz-transition: .5s all ease;
@@ -62,7 +62,7 @@ section .section-title {
 	font-weight:700;
 }
 #footer ul.quick-links li a i{
-	margin-right: 5px;
+	margin-right: 10px;
 }
 #footer ul.quick-links li:hover a i {
     font-weight: 700;
