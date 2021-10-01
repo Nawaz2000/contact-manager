@@ -29,13 +29,15 @@ public class ContactDetails {
 	private String image;
 	
 	private int userid;
+	
+	private String favourite;
 
 	public ContactDetails() {
 		super();
 	}
 
 	public ContactDetails(String name, String gender, String email, String position, String phone, String address,
-			String image, int userid) {
+			String image, int userid, String favourite) {
 		super();
 		this.name = name;
 		this.gender = gender;
@@ -45,6 +47,7 @@ public class ContactDetails {
 		this.address = address;
 		this.image = image;
 		this.userid = userid;
+		this.favourite = favourite;
 	}
 
 	public int getId() {
@@ -115,16 +118,26 @@ public class ContactDetails {
 		return userid;
 	}
 
-	public void setUserid(int currUserId) {
-		this.userid = currUserId;
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
+	public String getFavourite() {
+		return favourite;
+	}
+
+	public void setFavourite(String favourite) {
+		this.favourite = favourite;
 	}
 
 	@Override
 	public String toString() {
 		return "ContactDetails [id=" + id + ", name=" + name + ", gender=" + gender + ", email=" + email + ", position="
 				+ position + ", phone=" + phone + ", address=" + address + ", image=" + image + ", userid=" + userid
-				+ "]";
+				+ ", favourite=" + favourite + "]";
 	}
+
+	
 	
 	
 	

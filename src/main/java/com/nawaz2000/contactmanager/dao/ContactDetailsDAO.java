@@ -16,5 +16,7 @@ public interface ContactDetailsDAO extends JpaRepository<ContactDetails, Integer
 	@Query(value = "select * from contacts.contactdetails where lower(name) LIKE %?1%"
 			,nativeQuery = true)
 	public List<ContactDetails> search(String search);
+
+	public List<ContactDetails> findByFavourite(String favourite);
 	
 }

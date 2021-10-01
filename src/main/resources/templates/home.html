@@ -55,52 +55,26 @@
 						<br>
 						
 						<h4><b>My Favorites</b></h4>
-						<div class="list-group people-group">
-							<a href="#" class="list-group-item">
-								<div class="media">
-									<div class="pull-left">
-										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
-									</div>
-									<div class="media-body">
-										<h4 class="media-heading">John Wayne</h4>
-										<small>Software Engineer</small>
-									</div>
-								</div>
-							</a>
-							<a href="#" class="list-group-item">
-								<div class="media">
-									<div class="pull-left">
-										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="...">
-									</div>
-									<div class="media-body">
-										<h4 class="media-heading">Jane Dane</h4>
-										<small>Software Engineer</small>
-									</div>
-								</div>
-							</a>
-							<a href="#" class="list-group-item">
-								<div class="media">
-									<div class="pull-left">
-										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="...">
-									</div>
-									<div class="media-body">
-										<h4 class="media-heading">Juan Dela Cruz</h4>
-										<small>Software Engineer</small>
-									</div>
-								</div>
-							</a>
-							<a href="#" class="list-group-item">
-								<div class="media">
-									<div class="pull-left">
-										<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="...">
-									</div>
-									<div class="media-body">
-										<h4 class="media-heading">Jose Cruz</h4>
-										<small>Software Engineer</small>
-									</div>
-								</div>
-							</a>
-						</div>
+						
+						
+							<div class="list-group people-group">
+								<tr th:each="contact: ${allContacts}">
+									<a href="#" class="list-group-item">
+										<div class="media">
+											<div class="pull-left">
+												<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="...">
+											</div>
+											<div class="media-body">
+												<h4 class="media-heading" th:text="${contact.name}"></h4>
+												<small th:text="${contact.position}"></small>
+											</div>
+										</div>
+									</a>
+								</tr>
+							</div>
+						
+						
+						
 						
 					</div>
 					<div class="col-md-9">

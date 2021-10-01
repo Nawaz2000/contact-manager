@@ -73,6 +73,12 @@ public class HomeController {
 		List<ContactDetails> contacts = contactDAO.findByUserid(currUserId);
 		model.addAttribute("allContacts", contacts);
 		model.addAttribute("totalContacts", contacts.size());
+		
+		
+		// adding favourites to model
+		List<ContactDetails> favourites = contactDAO.findByFavourite("1");
+		model.addAttribute("favourites", favourites);
+		
 		return "home";
 	}
 	

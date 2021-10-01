@@ -150,7 +150,11 @@
 		                            <input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="file" name='image12' class="form-control" accept="image/png, image/jpeg, image/jpg" id="validationCustom03" placeholder="Cover image" >
 		                        </div>
 		                        
-		                        
+		                        <div class="col-md-4 mb-3">
+		                        	<label style="margin-top: 0.5em;" class="form-check-label" for="flexCheckChecked">Favourite:</label>
+									<input style="margin-top: 0.2em; margin-bottom: 0.5em;" class="form-check-input" name="favourite" th:field="*{favourite}" type="checkbox" value="1" id="flexCheckChecked" checked>
+									
+								</div>
 		                        
 		                        <div class="col-md-10 mb-3">
 		                            <label style="margin-top: 0.5em;" for="validationCustom02">Address:</label>
