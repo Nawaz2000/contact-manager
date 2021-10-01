@@ -79,7 +79,7 @@ public class HomeController {
 	@GetMapping("/deleteContact")
 	public String deleteContact(@RequestParam(name = "param") String param) {
 		contactDAO.deleteById(Integer.parseInt(param));
-		return "home";
+		return "redirect:/home";
 	}
 	
 	@GetMapping("/updateContact")
