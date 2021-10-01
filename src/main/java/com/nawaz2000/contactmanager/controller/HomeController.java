@@ -76,6 +76,20 @@ public class HomeController {
 		return "home";
 	}
 	
+	
+	@GetMapping("/search")
+	public String search(@RequestParam(name = "param") String search,
+						Model model) {
+		List<ContactDetails> searchResult = contactDAO.search(search);
+		System.out.println("\n\n========================>> Search results");
+		for (ContactDetails c : searchResult)
+			System.out.println(c);
+		model.addAttribute("searchResults", searchResult);
+		
+		return "search-results";
+	}
+	
+	
 	@GetMapping("/deleteContact")
 	public String deleteContact(@RequestParam(name = "param") String param) {
 		contactDAO.deleteById(Integer.parseInt(param));
