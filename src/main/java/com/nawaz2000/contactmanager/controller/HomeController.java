@@ -77,14 +77,18 @@ public class HomeController {
 	}
 	
 	@GetMapping("/deleteContact")
-	public String updateContact(@RequestParam(name = "param") String param) {
+	public String deleteContact(@RequestParam(name = "param") String param) {
 		contactDAO.deleteById(Integer.parseInt(param));
 		return "home";
 	}
 	
-	@PostMapping("/updateContact")
-	public String updateContact() {
-		return "home";
+	@GetMapping("/updateContact")
+	public String updateContact(@RequestParam(name = "param") String param, Model model) {
+		ContactDetails contact = contactDAO.findById(Integer.parseInt(param)).get();
+		System.out.println("==========> For update: " + contact);
+//		model.addAttribute("newContact", new ContactDetails());
+		model.addAttribute("updateContact", contact);
+		return "update-contact";
 	}
 	
 	@GetMapping("/addContact")
@@ -100,7 +104,7 @@ public class HomeController {
 		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 		newContact.setImage("https://bootdey.com/img/Content/avatar/avatar3.png");
 		newContact.setUserid(currUserId);
-		System.out.println(newContact);
+		System.out.println("\n\n=======> For add/update" + newContact);
 		ContactDetails savedUser = contactDAO.save(newContact);
 		fileName = "images/" + savedUser.getId() + ".jpg";
 		System.out.println("---------------> Image name: " + fileName);
