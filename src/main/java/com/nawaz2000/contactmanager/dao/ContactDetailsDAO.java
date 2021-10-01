@@ -13,7 +13,7 @@ public interface ContactDetailsDAO extends JpaRepository<ContactDetails, Integer
 	
 	public List<ContactDetails> findByUseridOrderByNameAsc(int userid);
 	
-	@Query(value = "select * from contacts.contactdetails where lower(name) LIKE %?1%"
+	@Query(value = "select * from contacts.contactdetails where lower(name) LIKE %?1% order by name"
 			,nativeQuery = true)
 	public List<ContactDetails> search(String search);
 	
