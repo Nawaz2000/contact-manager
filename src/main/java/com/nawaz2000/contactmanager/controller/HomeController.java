@@ -33,6 +33,7 @@ public class HomeController {
 	public static String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/images";
 	private static int currUserId;
 	private static User pUser;
+	private List<ContactDetails> favourites;
 	
 	@Autowired
 	@Qualifier("contactDetailsDAO")
@@ -76,7 +77,10 @@ public class HomeController {
 		
 		
 		// adding favourites to model
-		List<ContactDetails> favourites = contactDAO.findByFavourite("1");
+		favourites = contactDAO.findByFavourite("1");
+//		System.out.println("\n\n\nFavourites result\n\n");
+//		for (ContactDetails c : favourites)
+//			System.out.println(c);
 		model.addAttribute("favourites", favourites);
 		
 		return "home";
@@ -91,6 +95,8 @@ public class HomeController {
 		for (ContactDetails c : searchResult)
 			System.out.println(c);
 		model.addAttribute("searchResults", searchResult);
+		model.addAttribute("favourites", favourites);
+		
 		
 		return "search-results";
 	}
@@ -108,12 +114,14 @@ public class HomeController {
 		System.out.println("==========> For update: " + contact);
 //		model.addAttribute("newContact", new ContactDetails());
 		model.addAttribute("updateContact", contact);
+		model.addAttribute("favourites", favourites);
 		return "update-contact";
 	}
 	
 	@GetMapping("/addContact")
 	public String showAddContact(Model model) {
 		model.addAttribute("newContact", new ContactDetails());
+		model.addAttribute("favourites", favourites);
 		return "add-contact";
 	}
 	
