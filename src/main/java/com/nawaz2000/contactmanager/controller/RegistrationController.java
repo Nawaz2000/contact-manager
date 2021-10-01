@@ -21,14 +21,16 @@ public class RegistrationController {
 	@GetMapping("/register")
 	public String getRegistrationPage(Model model) {
 		model.addAttribute("newUser", new User());
+		System.out.println("get registration page");
 		return "register";
 	}
 	
 	@PostMapping("/register")
 	public String saveNewUser(Model model, @ModelAttribute(name = "newUser") User user) {
-		System.out.println(user);
+		System.out.println("save new user");
+		System.out.println("----------> New User:" + user);
 		userRepo.save(user);
-		return "index";
+		return "redirect:/login";
 	}
 	
 }

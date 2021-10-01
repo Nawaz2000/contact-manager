@@ -22,14 +22,14 @@
 		</div>
 	
 	    <!-- Login Form -->
-	    <form>
-	      <input type="text" id="login" class="fadeIn second" name="fName" placeholder="First Name">
-	      <input type="text" id="login" class="fadeIn second" name="lName" placeholder="Last Name">
-	      <input type="text" id="login" class="fadeIn second" name="username" placeholder="Username">
-	      <input type="text" id="login" class="fadeIn second" name="email" placeholder="Email">
-	      <input type="text" id="login" class="fadeIn third" name="password" placeholder="Password">
-	      <input type="text" id="login" class="fadeIn second" name="phone" placeholder="Phone">
-	      <input type="text" id="login" class="fadeIn second" name="address" placeholder="Address">
+	    <form th:action="@{/register}" method="post" th:object="${newUser}">
+	      <input type="text" id="login" class="fadeIn second" th:field="*{fName}" name="fName" placeholder="First Name">
+	      <input type="text" id="login" class="fadeIn second" th:field="*{lName}" name="lName" placeholder="Last Name">
+	      <input type="text" id="login" class="fadeIn second" th:field="*{username}" name="username" placeholder="Username">
+	      <input type="email" id="login" class="fadeIn second" th:field="*{email}" name="email" placeholder="Email">
+	      <input type="password" id="login" class="fadeIn third" th:field="*{password}" name="password" placeholder="Password">
+	      <input type="tel" id="login" class="fadeIn second" th:field="*{phone}" name="phone" placeholder="Phone">
+	      <input type="text" id="login" class="fadeIn second" th:field="*{address}" name="address" placeholder="Address">
 	      <input type="submit" class="fadeIn fourth" value="Register">
 	    </form>
 	

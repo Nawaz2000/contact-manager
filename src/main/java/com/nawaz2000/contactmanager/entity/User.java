@@ -58,19 +58,19 @@ public class User {
 		this.id = id;
 	}
 
-	public String getFname() {
+	public String getfName() {
 		return fName;
 	}
 
-	public void setFname(String fName) {
+	public void setfName(String fName) {
 		this.fName = fName;
 	}
 
-	public String getLname() {
+	public String getlName() {
 		return lName;
 	}
 
-	public void setLname(String lName) {
+	public void setlName(String lName) {
 		this.lName = lName;
 	}
 
@@ -128,6 +128,8 @@ public class User {
 				+ email + ", password=" + password + ", phone=" + phone + ", address=" + address + ", image=" + image
 				+ "]";
 	}
+
+	
 	
 	
 	
