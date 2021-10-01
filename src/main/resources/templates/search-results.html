@@ -57,7 +57,7 @@
 						<h4><b>My Favorites</b></h4>
 						<div class="list-group people-group">
 							<tr th:each="contact: ${favourites}">
-								<a href="#" class="list-group-item">
+								<a th:href="@{/search(param=${contact.name})}" class="list-group-item">
 									<div class="media">
 										<div class="pull-left">
 											<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="...">
