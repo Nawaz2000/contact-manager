@@ -101,6 +101,57 @@ public class HomeController {
 		return "search-results";
 	}
 	
+	@GetMapping("/profile")
+	public String getProfile(Model model) {		
+		model.addAttribute("profile", pUser);
+		model.addAttribute("favourites", favourites);
+		return "profile";
+	}
+	
+	@PostMapping("/updateProfile")
+	public String updateProfile(@ModelAttribute(name = "profile") User user,
+			@RequestParam(name = "image12", required = false) MultipartFile multipartFile) {
+		System.out.println(user);
+		
+		
+		
+		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		user.setImage("https://bootdey.com/img/Content/avatar/avatar3.png");
+//		user.setUserid(currUserId);
+		System.out.println("\n\n=======> For add/update" + user);
+		User savedUser = userDAO.save(user);
+		
+		
+		
+		User retrievedUser = userDAO.findById(savedUser.getId()).get();
+		
+		if (!user.getImage().isEmpty()) {
+			fileName = "images/" + savedUser.getId() + ".jpg";
+			System.out.println("---------------> Image name: " + fileName);
+			retrievedUser.setImage(fileName);
+		}
+		
+		
+		retrievedUser.setImage(null);
+		
+		userDAO.save(retrievedUser);
+		
+		System.out.println(user);
+		
+		if (savedUser.getImage() != null) {
+			System.out.println("\n\n\n\nImage not empty");
+			Path fileNameAndPath = Paths.get(uploadDirectory, savedUser.getId() + ".jpg");
+			try {
+				Files.write(fileNameAndPath, multipartFile.getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}		
+		
+		
+		return "redirect:/home";
+	}
+	
 	
 	@GetMapping("/deleteContact")
 	public String deleteContact(@RequestParam(name = "param") String param) {

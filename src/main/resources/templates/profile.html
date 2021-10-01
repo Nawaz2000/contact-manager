@@ -85,51 +85,51 @@
 						<div class="list-group contact-group">
 						
 						
-						<form th:action="@{/addContact}" th:object="${updateContact}" method="post" enctype="multipart/form-data">
+						<form th:action="@{/updateProfile}" th:object="${profile}" method="post" enctype="multipart/form-data">
 		                    <div class="form-row">
 		                    
 		                    	<input type="hidden" name="id" th:field="*{id}" th:value="*{id}">
 		
 								<div class="col-md-4 mb-4">
-									<label style="margin-top: 0.5em;">Name: </label><br>
-									<input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="text" name='name' th:field="*{name}" class="form-control" th:value="${updateContact.name}" 
+									<label style="margin-top: 0.5em;">First Name: </label><br>
+									<input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="text" name='fName' th:field="*{fName}" class="form-control" th:value="${profile.fName}" 
+									required>
+								</div>
+								
+								<div class="col-md-4 mb-4">
+									<label style="margin-top: 0.5em;">Last Name: </label><br>
+									<input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="text" name='lName' th:field="*{lName}" class="form-control" th:value="${profile.lName}" 
 									required>
 								</div>
 		
 								<div class="col-md-4 mb-3">
-		                            <label style="margin-top: 0.5em;" for="validationCustom01">Gender: </label>
-		                            <input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="text" name='gender' th:field="*{gender}" class="form-control" id="validationCustom01" th:value="${updateContact.gender}"
+		                            <label style="margin-top: 0.5em;" for="validationCustom01">Username: </label>
+		                            <input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="text" name='username' th:field="*{username}" class="form-control" id="validationCustom01" th:value="${profile.username}"
 		                                 required>
 		                        </div>
 		                        <div class="col-md-4 mb-3">
 		                            <label style="margin-top: 0.5em;" for="validationCustom01">Email: </label>
-		                            <input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="email" name='email' th:field="*{email}" class="form-control" id="validationCustom01" th:value="${updateContact.email}"
+		                            <input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="email" name='email' th:field="*{email}" class="form-control" id="validationCustom01" th:value="${profile.email}"
 		                                 required>
 		                        </div>
 		                        <div class="col-md-4 mb-3">
-		                            <label style="margin-top: 0.5em;" for="validationCustom01">Position: </label>
-		                            <input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="text" name='position' th:field="*{position}" class="form-control" id="validationCustom01" th:value="${updateContact.position}"
+		                            <label style="margin-top: 0.5em;" for="validationCustom01">Password: </label>
+		                            <input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="text" name='password' th:field="*{password}" class="form-control" id="validationCustom01" th:value="${profile.password}"
 		                                 required>
 		                        </div>
 		                        <div class="col-md-4 mb-3">
 		                            <label style="margin-top: 0.5em;" for="validationCustom02">Phone:</label>
-		                            <input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="tel" name='phone' th:field="*{phone}" class="form-control" id="validationCustom02" th:value="${updateContact.phone}"
+		                            <input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="tel" name='phone' th:field="*{phone}" class="form-control" id="validationCustom02" th:value="${profile.phone}"
 		                                 required>
 		                        </div>
 		                        <div class="col-md-4 mb-3">
 		                            <label style="margin-top: 0.5em;" for="validationCustom03">Cover pic:</label>
-		                            <input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="file" name='image12' class="form-control" accept="image/png, image/jpeg, image/jpg" id="validationCustom03" th:value="${updateContact.image}" >
-		                        </div>
-		                        
-		                        <div class="col-md-4 mb-3">
-		                        	<label style="margin-top: 0.5em;" class="form-check-label" for="flexCheckChecked">Favourite:</label>
-									<input style="margin-top: 0.2em; margin-bottom: 0.5em;" class="form-check-input" name="favourite" th:field="*{favourite}" type="checkbox" value="1" id="flexCheckChecked" checked>
-									
-								</div>
+		                            <input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="file" name='image12' class="form-control" accept="image/png, image/jpeg, image/jpg" id="validationCustom03" th:value="${profile.image}" >
+		                        </div>		                        
 		                        
 		                        <div class="col-md-10 mb-3">
 		                            <label style="margin-top: 0.5em;" for="validationCustom02">Address:</label>
-		                            <textarea style="margin-top: 0.2em; margin-bottom: 0.5em;" class="form-control" name='address' th:value="${updateContact.address}" th:field="*{address}" id="exampleFormControlTextarea1" rows="3"></textarea>
+		                            <textarea style="margin-top: 0.2em; margin-bottom: 0.5em;" class="form-control" name='address' th:value="${profile.address}" th:field="*{address}" id="exampleFormControlTextarea1" rows="3"></textarea>
 		                        </div>
 		
 		
