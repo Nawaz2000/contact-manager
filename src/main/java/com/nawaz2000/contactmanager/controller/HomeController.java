@@ -106,23 +106,33 @@ public class HomeController {
 		newContact.setUserid(currUserId);
 		System.out.println("\n\n=======> For add/update" + newContact);
 		ContactDetails savedUser = contactDAO.save(newContact);
-		fileName = "images/" + savedUser.getId() + ".jpg";
-		System.out.println("---------------> Image name: " + fileName);
+		
+		
 		
 		ContactDetails retrievedUser = contactDAO.findById(savedUser.getId()).get();
-		retrievedUser.setImage(fileName);
+		
+		if (!newContact.getImage().isEmpty()) {
+			fileName = "images/" + savedUser.getId() + ".jpg";
+			System.out.println("---------------> Image name: " + fileName);
+			retrievedUser.setImage(fileName);
+		}
+		
+		
+		retrievedUser.setImage(null);
 		
 		contactDAO.save(retrievedUser);
 		
 		System.out.println(newContact);
 		
-		
-		Path fileNameAndPath = Paths.get(uploadDirectory, savedUser.getId() + ".jpg");
-		try {
-			Files.write(fileNameAndPath, multipartFile.getBytes());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		if (savedUser.getImage() != null) {
+			System.out.println("\n\n\n\nImage not empty");
+			Path fileNameAndPath = Paths.get(uploadDirectory, savedUser.getId() + ".jpg");
+			try {
+				Files.write(fileNameAndPath, multipartFile.getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}		
 		
 		
 		return "redirect:/home";
