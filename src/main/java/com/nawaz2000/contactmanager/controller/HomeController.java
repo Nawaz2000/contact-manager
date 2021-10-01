@@ -71,13 +71,13 @@ public class HomeController {
 		
 		
 		
-		List<ContactDetails> contacts = contactDAO.findByUserid(currUserId);
+		List<ContactDetails> contacts = contactDAO.findByUseridOrderByNameAsc(currUserId);
 		model.addAttribute("allContacts", contacts);
 		model.addAttribute("totalContacts", contacts.size());
 		
 		
 		// adding favourites to model
-		favourites = contactDAO.findByFavourite("1");
+		favourites = contactDAO.findByFavouriteOrderByNameAsc("1");
 //		System.out.println("\n\n\nFavourites result\n\n");
 //		for (ContactDetails c : favourites)
 //			System.out.println(c);
