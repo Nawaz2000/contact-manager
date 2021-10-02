@@ -124,7 +124,7 @@
 												<ul class="list-unstyled">
 													<li><i class="fa fa-mars-stroke"></i><span th:text="' ' + ${contact.gender}"></span></li>
 													<li><i class="fa fa-mobile"></i><span th:text="' ' + ${contact.phone}"></span></li>
-													<li><i class="fa fa-envelope-o"></i><span th:text="' ' + ${contact.email}"></span></li>
+													<li><i class="fa fa-envelope-o"></i><span>&nbsp;</span><a th:href="'mailto:' + ${contact.email}" th:text="${contact.email}" target="_blank"></a></li>
 													
 												</ul>												
 											</div>
