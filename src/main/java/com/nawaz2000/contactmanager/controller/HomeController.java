@@ -11,6 +11,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -44,7 +47,7 @@ public class HomeController {
 	private UserDAO userDAO;
 	
 	@GetMapping({"/","/home"})
-	public String getHome(Model model, HttpSession session) {
+	public String getHome(Model model, HttpSession session, @RequestParam(name = "page",defaultValue = "0") Integer page) {
 		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String currUsername = "";
@@ -70,10 +73,30 @@ public class HomeController {
 		}
 		
 		
+		// adding pagination
+		Pageable pagable = PageRequest.of(page, 3);
 		
-		List<ContactDetails> contacts = contactDAO.findByUseridOrderByNameAsc(currUserId);
+		System.out.println("\n\n\n\n\n\n===========Pagination sql:");
+		System.out.println("Page: " + page + " UId: " + currUserId);
+		Page<ContactDetails> contacts = contactDAO.findByUserid(currUserId, pagable);
+//		System.out.println("getNo: " + contacts.getNumber());
+//		System.out.println("getNoOfE: " + contacts.getNumberOfElements());
+//		System.out.println("size: " + contacts.getSize());
+//		System.out.println("getTotalE: " + contacts.getTotalElements());
+//		System.out.println("getTotalPages: " + contacts.getTotalPages());
+//		List<ContactDetails> x = contacts.getContent();
+//		System.out.println("List size = " + x.size());
+		
+		System.out.println("\n\n\n\n\n\n===========Pringting found contacts:");
+		System.out.println("Page: " + page);
+//		for (ContactDetails c : x)
+//			System.out.println(c);
+		
+		List<ContactDetails> contacts2 = contactDAO.findByUseridOrderByNameAsc(currUserId);
 		model.addAttribute("allContacts", contacts);
-		model.addAttribute("totalContacts", contacts.size());
+		model.addAttribute("currentPage", page);
+		model.addAttribute("totalPages", contacts.getTotalPages());
+		model.addAttribute("totalContacts", contacts2.size());
 		
 		
 		// adding favourites to model

@@ -130,7 +130,7 @@
 											</div>
 										</div>
 									</div>
-									<a th:href="@{/updateContact(param=${contact.id})}" type="button" class="btn button1">Update</a>
+									<a th:href="@{/updateContact(param=${contact.id})}" type="button" class="btn button1" style="color:white;">Update</a>
 									<a th:href="@{/deleteContact(param=${contact.id})}" type="button" class="btn btn-danger">Delete</a>
 								</div>
 							</div>
@@ -143,13 +143,11 @@
 						</div>
 						<div class="pull-right">
 							<ul class="pagination pagination-split pagination-sm pagination-contact">
-								<li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-								<li class="active"><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+								<li th:if="${currentPage != 0}"><a th:href="@{/home(page=${currentPage - 1})}"><i class="fa fa-angle-left"></i></a></li>								
+								
+								<li th:classappend="${currentPage==i-1?'active':''}" th:each="i : ${#numbers.sequence(1,totalPages)}"><a th:href="@{/home(page=${i-1})}"><span th:text="${i}"></span></a></li>
+
+								<li th:if="${currentPage+1 != totalPages}"><a th:href="@{/home(page=${currentPage + 1})}"><i class="fa fa-angle-right"></i></a></li>
 							</ul>
 						</div>
 					</div>
