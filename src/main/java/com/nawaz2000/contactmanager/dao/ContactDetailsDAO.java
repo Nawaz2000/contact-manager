@@ -17,13 +17,13 @@ public interface ContactDetailsDAO extends JpaRepository<ContactDetails, Integer
 	
 	public List<ContactDetails> findByUseridOrderByNameAsc(int userid);
 	
-	@Query(value = "select * from contacts.contactdetails where lower(name) LIKE %?1%  and userid = ?2 order by name"
+	@Query(value = "select * from contactdetails where lower(name) LIKE %?1%  and userid = ?2 order by name"
 			,nativeQuery = true)
 	public Page<ContactDetails> search(String search, int userId, Pageable pageable);
 	
 	public List<ContactDetails> findByFavouriteOrderByNameAsc(String favourite);
 	
-	@Query(value="select * from contacts.contactdetails where userid = ?1 order by name", nativeQuery = true)
+	@Query(value="select * from contactdetails where userid = ?1 order by name", nativeQuery = true)
 	public Page<ContactDetails> findByUserid(int userId, Pageable pageable);
 	
 	
