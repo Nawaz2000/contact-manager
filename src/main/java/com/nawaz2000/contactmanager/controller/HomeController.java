@@ -41,8 +41,8 @@ import com.nawaz2000.contactmanager.entity.User;
 @Controller
 public class HomeController {
 	
-//	public static String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/images";
-	public static String uploadDirectory;
+	public static String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/images";
+//	public static String uploadDirectory;
 	private static int currUserId;
 	private static User pUser;
 	private List<ContactDetails> favourites;
@@ -58,12 +58,12 @@ public class HomeController {
 	
 	@GetMapping({"/","/home"})
 	public String getHome(Model model, HttpSession session, @RequestParam(name = "page",defaultValue = "0") Integer page) throws IOException {
-		uploadDirectory = new ClassPathResource("static/css/footer.css").getURL().getPath();
-		String path = new File(".").getCanonicalPath() + "/src/main/resources/static/images";
-		
-		System.out.println("\n\nUpload directory: " + uploadDirectory);
-		System.out.println("Upload directory 2: " + path);
-		uploadDirectory = path;
+//		uploadDirectory = new ClassPathResource("static/css/footer.css").getURL().getPath();
+//		String path = new File(".").getCanonicalPath() + "/src/main/resources/static/images";
+//		
+//		System.out.println("\n\nUpload directory: " + uploadDirectory);
+//		System.out.println("Upload directory 2: " + path);
+//		uploadDirectory = path;
 		
 		String data = "";
 		ClassPathResource resource = new ClassPathResource("static/css/footer.css");
@@ -158,7 +158,7 @@ public class HomeController {
 	public String updateProfile(@ModelAttribute(name = "profile") User user,
 			@RequestParam(name = "image12", required = false) MultipartFile multipartFile) throws IOException {
 		System.out.println(user);
-		uploadDirectory = new File(".").getCanonicalPath() + "/src/main/resources/static/images";
+//		uploadDirectory = new File(".").getCanonicalPath() + "/src/main/resources/static/images";
 		
 		
 		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
