@@ -117,8 +117,8 @@
 												<i class="fa fa-map-marker" th:text="' ' + ${contact.address}"></i>
 												<ul class="list-unstyled">
 													<li><i class="fa fa-mars-stroke"></i><span th:text="' ' + ${contact.gender}"></span></li>
-													<li><i class="fa fa-mobile"></i><span th:text="' ' + ${contact.phone}"></span></li>
-													<li><i class="fa fa-envelope-o"></i><span th:text="' ' + ${contact.email}"></span></li>
+													<li><i class="fa fa-mobile"></i><span>&nbsp;</span><a th:href="'tel:' + ${contact.phone}" th:text="${contact.phone}"></a></li>
+													<li><i class="fa fa-envelope-o"></i><span>&nbsp;</span><a th:href="'mailto:' + ${contact.email}" th:text="${contact.email}" target="_blank"></a></li>
 													
 												</ul>												
 											</div>
@@ -234,7 +234,7 @@
 				<div
 					class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
 					<p class="h5">
-						© 2021 All right Reversed. <a class="text-green ml-2"
+						&copy; 2021 All right Reversed. <a class="text-green ml-2"
 							href="https://github.com/Nawaz2000" target="_blank">Md. Nawaz
 							Rahaman</a>
 					</p>
