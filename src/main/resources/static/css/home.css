@@ -3,6 +3,16 @@ body{
     background:#eee;
 }
 
+.button1{
+	background-color: #9400D3;
+	color: white;
+}
+
+.button1:hover{
+	background-color: #6b0099;
+	color: white;
+}
+
 .nav.nav-pills > li > a {
     color: #777;
     border-radius: 0!important;
@@ -14,7 +24,7 @@ body{
 .nav.nav-pills > li.active > a:hover,
 .nav.nav-pills > li.active > a:focus {
     color: #fff !important;
-    background-color: #2ECC71 !important;
+    background-color: #9400D3 !important;
 
 }
 
@@ -97,7 +107,8 @@ body{
 }
 
 .page-people-directory .contact-group .list-group-item:hover {
-    background-color: #fcfcfc;
+    background-color: #F5F5F5;
+    transition: 0.3s;
 }
 
 .page-people-directory .contact-group .media-content {
