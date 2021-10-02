@@ -23,7 +23,7 @@ public interface ContactDetailsDAO extends JpaRepository<ContactDetails, Integer
 	
 	public List<ContactDetails> findByFavouriteOrderByNameAsc(String favourite);
 	
-	@Query(value="select * from contacts.contactdetails where userid = ?1", nativeQuery = true)
+	@Query(value="select * from contacts.contactdetails where userid = ?1 order by name", nativeQuery = true)
 	public Page<ContactDetails> findByUserid(int userId, Pageable pagable);
 	
 	

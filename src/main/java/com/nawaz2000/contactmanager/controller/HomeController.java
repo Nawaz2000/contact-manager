@@ -79,18 +79,9 @@ public class HomeController {
 		System.out.println("\n\n\n\n\n\n===========Pagination sql:");
 		System.out.println("Page: " + page + " UId: " + currUserId);
 		Page<ContactDetails> contacts = contactDAO.findByUserid(currUserId, pagable);
-//		System.out.println("getNo: " + contacts.getNumber());
-//		System.out.println("getNoOfE: " + contacts.getNumberOfElements());
-//		System.out.println("size: " + contacts.getSize());
-//		System.out.println("getTotalE: " + contacts.getTotalElements());
-//		System.out.println("getTotalPages: " + contacts.getTotalPages());
-//		List<ContactDetails> x = contacts.getContent();
-//		System.out.println("List size = " + x.size());
 		
 		System.out.println("\n\n\n\n\n\n===========Pringting found contacts:");
 		System.out.println("Page: " + page);
-//		for (ContactDetails c : x)
-//			System.out.println(c);
 		
 		List<ContactDetails> contacts2 = contactDAO.findByUseridOrderByNameAsc(currUserId);
 		model.addAttribute("allContacts", contacts);
@@ -112,13 +103,30 @@ public class HomeController {
 	
 	@GetMapping("/search")
 	public String search(@RequestParam(name = "param") String search,
-						Model model) {
+						Model model,
+						@RequestParam(name = "page",defaultValue = "0") Integer page) {
 		List<ContactDetails> searchResult = contactDAO.search(search);
 		System.out.println("\n\n========================>> Search results");
 		for (ContactDetails c : searchResult)
 			System.out.println(c);
 		model.addAttribute("searchResults", searchResult);
 		model.addAttribute("favourites", favourites);
+		
+		
+		Pageable pagable = PageRequest.of(page, 3);
+		
+		System.out.println("\n\n\n\n\n\n===========Pagination sql:");
+		System.out.println("Page: " + page + " UId: " + currUserId);
+		Page<ContactDetails> contacts = contactDAO.findByUserid(currUserId, pagable);
+		
+		System.out.println("\n\n\n\n\n\n===========Pringting found contacts:");
+		System.out.println("Page: " + page);
+		
+		List<ContactDetails> contacts2 = contactDAO.findByUseridOrderByNameAsc(currUserId);
+		model.addAttribute("allContacts", contacts);
+		model.addAttribute("currentPage", page);
+		model.addAttribute("totalPages", contacts.getTotalPages());
+		model.addAttribute("totalContacts", contacts2.size());
 		
 		
 		return "search-results";
