@@ -37,6 +37,7 @@ public class HomeController {
 	private static int currUserId;
 	private static User pUser;
 	private List<ContactDetails> favourites;
+	private String search;
 	
 	@Autowired
 	@Qualifier("contactDetailsDAO")
@@ -105,27 +106,22 @@ public class HomeController {
 	public String search(@RequestParam(name = "param") String search,
 						Model model,
 						@RequestParam(name = "page",defaultValue = "0") Integer page) {
-		List<ContactDetails> searchResult = contactDAO.search(search);
+		
+		Pageable pageable = PageRequest.of(page, 3);
+		Page<ContactDetails> searchResult = contactDAO.search(search, currUserId, pageable);
 		System.out.println("\n\n========================>> Search results");
+		System.out.println("total pages: " + searchResult.getTotalPages());
 		for (ContactDetails c : searchResult)
 			System.out.println(c);
 		model.addAttribute("searchResults", searchResult);
-		model.addAttribute("favourites", favourites);
-		
-		
-		Pageable pagable = PageRequest.of(page, 3);
+		model.addAttribute("favourites", favourites);		
 		
 		System.out.println("\n\n\n\n\n\n===========Pagination sql:");
 		System.out.println("Page: " + page + " UId: " + currUserId);
-		Page<ContactDetails> contacts = contactDAO.findByUserid(currUserId, pagable);
-		
-		System.out.println("\n\n\n\n\n\n===========Pringting found contacts:");
-		System.out.println("Page: " + page);
 		
 		List<ContactDetails> contacts2 = contactDAO.findByUseridOrderByNameAsc(currUserId);
-		model.addAttribute("allContacts", contacts);
 		model.addAttribute("currentPage", page);
-		model.addAttribute("totalPages", contacts.getTotalPages());
+		model.addAttribute("totalPages", searchResult.getTotalPages());
 		model.addAttribute("totalContacts", contacts2.size());
 		
 		
