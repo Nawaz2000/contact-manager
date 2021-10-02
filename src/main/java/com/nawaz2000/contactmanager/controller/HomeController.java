@@ -1,16 +1,23 @@
 package com.nawaz2000.contactmanager.controller;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +25,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -33,7 +41,8 @@ import com.nawaz2000.contactmanager.entity.User;
 @Controller
 public class HomeController {
 	
-	public static String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/images";
+//	public static String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/images";
+	public static String uploadDirectory;
 	private static int currUserId;
 	private static User pUser;
 	private List<ContactDetails> favourites;
@@ -48,7 +57,17 @@ public class HomeController {
 	private UserDAO userDAO;
 	
 	@GetMapping({"/","/home"})
-	public String getHome(Model model, HttpSession session, @RequestParam(name = "page",defaultValue = "0") Integer page) {
+	public String getHome(Model model, HttpSession session, @RequestParam(name = "page",defaultValue = "0") Integer page) throws IOException {
+		uploadDirectory = new ClassPathResource("static/css/footer.css").getURL().getPath();
+		String path = new File(".").getCanonicalPath() + "/src/main/resources/static/images";
+		
+		System.out.println("\n\nUpload directory: " + uploadDirectory);
+		System.out.println("Upload directory 2: " + path);
+		uploadDirectory = path;
+		
+		String data = "";
+		ClassPathResource resource = new ClassPathResource("static/css/footer.css");
+		System.out.println("==========> File found? " + resource.exists());
 		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String currUsername = "";
@@ -137,12 +156,13 @@ public class HomeController {
 	
 	@PostMapping("/updateProfile")
 	public String updateProfile(@ModelAttribute(name = "profile") User user,
-			@RequestParam(name = "image12", required = false) MultipartFile multipartFile) {
+			@RequestParam(name = "image12", required = false) MultipartFile multipartFile) throws IOException {
 		System.out.println(user);
-		
+		uploadDirectory = new File(".").getCanonicalPath() + "/src/main/resources/static/images";
 		
 		
 		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		System.out.println("Image received: " + fileName);
 		user.setImage("https://bootdey.com/img/Content/avatar/avatar3.png");
 //		user.setUserid(currUserId);
 		System.out.println("\n\n=======> For add/update" + user);
@@ -153,13 +173,12 @@ public class HomeController {
 		User retrievedUser = userDAO.findById(savedUser.getId()).get();
 		
 		if (!user.getImage().isEmpty()) {
-			fileName = "images/" + savedUser.getId() + ".jpg";
+			fileName = "images/" + savedUser.getId() + "u.jpg";
 			System.out.println("---------------> Image name: " + fileName);
 			retrievedUser.setImage(fileName);
 		}
-		
-		
-		retrievedUser.setImage(null);
+		else
+			retrievedUser.setImage(null);
 		
 		userDAO.save(retrievedUser);
 		
@@ -167,7 +186,7 @@ public class HomeController {
 		
 		if (savedUser.getImage() != null) {
 			System.out.println("\n\n\n\nImage not empty");
-			Path fileNameAndPath = Paths.get(uploadDirectory, savedUser.getId() + ".jpg");
+			Path fileNameAndPath = Paths.get(uploadDirectory, savedUser.getId() + "u.jpg");
 			try {
 				Files.write(fileNameAndPath, multipartFile.getBytes());
 			} catch (IOException e) {
@@ -222,9 +241,8 @@ public class HomeController {
 			System.out.println("---------------> Image name: " + fileName);
 			retrievedUser.setImage(fileName);
 		}
-		
-		
-		retrievedUser.setImage(null);
+		else
+			retrievedUser.setImage(null);
 		
 		contactDAO.save(retrievedUser);
 		

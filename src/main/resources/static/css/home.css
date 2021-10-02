@@ -3,6 +3,13 @@ body{
     background:#eee;
 }
 
+.avatar {
+  vertical-align: middle;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+}
+
 .button1{
 	background-color: #9400D3;
 	color: white;
