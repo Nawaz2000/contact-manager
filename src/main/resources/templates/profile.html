@@ -91,11 +91,18 @@
 						<div class="list-group contact-group">
 						
 						
+						
 						<form th:action="@{/updateProfile}" th:object="${profile}" method="post" enctype="multipart/form-data">
 		                    <div class="form-row">
+		                    	
+		                    	
 		                    
 		                    	<input type="hidden" name="id" th:field="*{id}" th:value="*{id}">
 		
+								<div class="col-md-6 mb-4">		                   			                    	
+									<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="...">																
+								</div>
+								
 								<div class="col-md-4 mb-4">
 									<label style="margin-top: 0.5em;">First Name: </label><br>
 									<input style="margin-top: 0.2em; margin-bottom: 0.5em;" type="text" name='fName' th:field="*{fName}" class="form-control" th:value="${profile.fName}" 
