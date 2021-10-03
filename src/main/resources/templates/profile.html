@@ -66,7 +66,7 @@
 								<a th:href="@{/search(param=${contact.name})}" class="list-group-item">
 									<div class="media">
 										<div class="pull-left">
-											<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="...">
+											<img class="avatar3" th:src="@{'data:image/jpg;base64,'+ ${contact.image}}" alt="...">
 										</div>
 										<div class="media-body">
 											<h4 class="media-heading" th:text="${contact.name}"></h4>

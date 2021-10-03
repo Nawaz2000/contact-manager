@@ -122,7 +122,7 @@ public class HomeController {
 		for (ContactDetails c : searchResult)
 			System.out.println(c);
 		model.addAttribute("searchResults", searchResult);
-		model.addAttribute("favourites", favourites);		
+		model.addAttribute("favourites", favouriteList);		
 		
 		System.out.println("\n\n\n\n\n\n===========Pagination sql:");
 		System.out.println("Page: " + page + " UId: " + currUserId);
@@ -143,7 +143,7 @@ public class HomeController {
 	@GetMapping("/profile")
 	public String getProfile(Model model) {		
 		model.addAttribute("profile", pUser);
-		model.addAttribute("favourites", favourites);
+		model.addAttribute("favourites", favouriteList);
 		model.addAttribute("imgUtil", getImgData(pUser.getImage()));
 		return "profile";
 	}
@@ -172,14 +172,14 @@ public class HomeController {
 		System.out.println("==========> For update: " + contact);
 //		model.addAttribute("newContact", new ContactDetails());
 		model.addAttribute("updateContact", contact);
-		model.addAttribute("favourites", favourites);
+		model.addAttribute("favourites", favouriteList);
 		return "update-contact";
 	}
 	
 	@GetMapping("/addContact")
 	public String showAddContact(Model model) {
 		model.addAttribute("newContact", new ContactDetails());
-		model.addAttribute("favourites", favourites);
+		model.addAttribute("favourites", favouriteList);
 		return "add-contact";
 	}
 	
