@@ -172,19 +172,11 @@ public class HomeController {
 	
 	@PostMapping("/addContact")
 	public String addContact(@ModelAttribute(name = "newContact") ContactDetails newContact,
-							@RequestParam(name = "image12", required = false) MultipartFile multipartFile) throws IOException {
+							@RequestParam(name = "image12", required = false) MultipartFile multipartFile) throws IOException {		
 		
-		newContact.setImage(multipartFile.getBytes());
-		newContact.setUserid(currUserId);
-		ContactDetails savedUser = contactStorageService.save(newContact);
-		
-		
-		
-//		contactDAO.save(retrievedUser);
-		
+		ContactDetails savedUser = contactStorageService.save(newContact, multipartFile,currUserId );	
 		System.out.println(newContact);	
-		
-		
+				
 		return "redirect:/home";
 	}
 	

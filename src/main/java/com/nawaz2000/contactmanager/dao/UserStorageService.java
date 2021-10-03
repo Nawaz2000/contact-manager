@@ -19,7 +19,7 @@ public class UserStorageService {
 	private UserRepository docRepository;
 	
 	public User saveUser(MultipartFile file, User user) throws IOException {
-		if (!file.isEmpty() && (file != null))
+		if (file != null && (user.getImage() != null))
 			user.setImage(file.getBytes());
 		if(user.getId() != null)
 			user.setImage(userRepository.findById(user.getId()).get().getImage());
