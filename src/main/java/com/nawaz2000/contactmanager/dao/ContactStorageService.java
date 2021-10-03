@@ -1,7 +1,5 @@
 package com.nawaz2000.contactmanager.dao;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.nawaz2000.contactmanager.entity.ContactDetails;
 
@@ -19,23 +16,16 @@ public class ContactStorageService {
 	@Autowired
 	private ContactRepository contactRepository;
 	
-	public List<ContactDetails> findByUseridOrderByNameAsc(Integer userid){
-		if (userid != null)
-			return contactRepository.findByUseridOrderByNameAsc(userid);
-		return new ArrayList<>();
+	public List<ContactDetails> findByUseridOrderByNameAsc(int userid){
+		return contactRepository.findByUseridOrderByNameAsc(userid);
 	}
 	
-	public Page<ContactDetails> search(String search, Integer userId, Pageable pageable){
-		if (search != null && userId != null)
-			return contactRepository.search(search, userId, pageable);
-		else
-			return null;
+	public Page<ContactDetails> search(String search, int userId, Pageable pageable){
+		return contactRepository.search(search, userId, pageable);
 	}
 	
 	public List<ContactDetails> findByFavouriteOrderByNameAsc(String favourite){
-		if (favourite != null)
-			return contactRepository.findByFavouriteOrderByNameAsc(favourite);
-		return new ArrayList<>();
+		return contactRepository.findByFavouriteOrderByNameAsc(favourite);
 	}
 	
 	public Page<ContactDetails> findByUserid(int userId, Pageable pageable){
@@ -50,10 +40,8 @@ public class ContactStorageService {
 		return contactRepository.findById(id).get();
 	}
 	
-	public ContactDetails save(ContactDetails newContact, MultipartFile multipartFile, Integer currUserId) throws IOException {
-		newContact.setImage(multipartFile.getBytes());
-		newContact.setUserid(currUserId);
-		return contactRepository.save(newContact);
+	public ContactDetails save(ContactDetails contactDetails) {
+		return contactRepository.save(contactDetails);
 	}
 	
 }

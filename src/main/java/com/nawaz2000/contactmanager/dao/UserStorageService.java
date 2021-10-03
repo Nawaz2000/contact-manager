@@ -15,9 +15,8 @@ public class UserStorageService {
 	@Autowired
 	private UserRepository docRepository;
 	
-	public User saveUser(MultipartFile file, User user) throws IOException {		
-		if (!file.isEmpty())
-			user.setImage(file.getBytes());
+	public User saveUser(MultipartFile file, User user) throws IOException {
+		user.setImage(file.getBytes());
 		return docRepository.save(user);
 	}
 	
@@ -29,9 +28,7 @@ public class UserStorageService {
 	}
 	
 	public Optional<User> findByUsername(String username){
-		if (username != null)
-			return docRepository.findByUsername(username);
-		return Optional.empty();
+		return docRepository.findByUsername(username);
 	}
 	
 }
