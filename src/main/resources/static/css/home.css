@@ -34,6 +34,16 @@ body{
 	color: white;
 }
 
+.button2{
+	background-color: #696969;
+	color: white;
+}
+
+.button2:hover{
+	background-color: #808080;
+	color: white;
+}
+
 .nav.nav-pills > li > a {
     color: #777;
     border-radius: 0!important;

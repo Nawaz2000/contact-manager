@@ -19,7 +19,7 @@
 	<div class="container" align="center"  >
 		<div class="card2" >
 			<div class="card-body" style="color: #696969;">
-				<h2 class="card-title" id="res"><b>My Contacts -v1.0</b></h2>
+				<h2 class="card-title" id="res"><b>My Contacts -v2.0</b></h2>
 			</h3>
 			<hr>
 			</div>
@@ -66,7 +66,7 @@
 								<a th:href="@{/search(param=${contact.name})}" class="list-group-item">
 									<div class="media">
 										<div class="pull-left">
-											<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="...">
+											<img class="avatar3" th:src="@{'data:image/jpg;base64,'+ ${contact.image}}" alt="...">
 										</div>
 										<div class="media-body">
 											<h4 class="media-heading" th:text="${contact.name}"></h4>
