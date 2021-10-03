@@ -6,14 +6,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.nawaz2000.contactmanager.entity.ContactDetails;
 
-@Repository("contactDetailsDAO")
-public interface ContactDetailsDAO extends JpaRepository<ContactDetails, Integer>{
+@Repository
+public interface ContactRepository extends JpaRepository<ContactDetails, Integer> {
 	
 	public List<ContactDetails> findByUseridOrderByNameAsc(int userid);
 	
@@ -25,6 +23,5 @@ public interface ContactDetailsDAO extends JpaRepository<ContactDetails, Integer
 	
 	@Query(value="select * from contactdetails where userid = ?1 order by name", nativeQuery = true)
 	public Page<ContactDetails> findByUserid(int userId, Pageable pageable);
-	
 	
 }

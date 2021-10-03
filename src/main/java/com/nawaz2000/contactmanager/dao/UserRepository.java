@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import com.nawaz2000.contactmanager.entity.User;
 
-@Repository("userDAO")
-public interface UserDAO extends JpaRepository<User, Integer> {
-	
+@Repository
+public interface UserRepository extends JpaRepository<User, Integer> {
+
 	public Optional<User> findByUsername(String username);
 	
 }

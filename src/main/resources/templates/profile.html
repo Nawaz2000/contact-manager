@@ -100,7 +100,7 @@
 		                    	<input type="hidden" name="id" th:field="*{id}" th:value="*{id}">
 		
 								<div class="col-md-5 mb-4">		                   			                    	
-									<img class="avatar" alt="Avatar" th:src="*{image}"> 
+									<img class="avatar" alt="Avatar" th:src="@{'data:image/jpg;base64,'+ ${imgUtil}}"> 
 									<!-- <img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="..."> -->																
 								</div>
 								

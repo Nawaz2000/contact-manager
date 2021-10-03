@@ -7,15 +7,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.nawaz2000.contactmanager.dao.UserDAO;
+import com.nawaz2000.contactmanager.dao.UserStorageService;
 import com.nawaz2000.contactmanager.entity.User;
 
 @Service
 public class MyUserDetailService implements UserDetailsService {
 
 	@Autowired
-	@Qualifier("userDAO")
-	private UserDAO userRepo;
+	private UserStorageService userRepo;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

@@ -1,5 +1,7 @@
 package com.nawaz2000.contactmanager.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -8,15 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.nawaz2000.contactmanager.dao.UserDAO;
+import com.nawaz2000.contactmanager.dao.UserStorageService;
 import com.nawaz2000.contactmanager.entity.User;
 
 @Controller
 public class RegistrationController {
 	
 	@Autowired
-	@Qualifier("userDAO")
-	private UserDAO userRepo;
+	private UserStorageService userStorageService;
 	
 	@GetMapping("/register")
 	public String getRegistrationPage(Model model) {
@@ -26,10 +27,10 @@ public class RegistrationController {
 	}
 	
 	@PostMapping("/register")
-	public String saveNewUser(Model model, @ModelAttribute(name = "newUser") User user) {
+	public String saveNewUser(Model model, @ModelAttribute(name = "newUser") User user) throws IOException {
 		System.out.println("save new user");
 		System.out.println("----------> New User:" + user);
-		userRepo.save(user);
+		userStorageService.saveUser(null, user);
 		return "redirect:/login";
 	}
 	

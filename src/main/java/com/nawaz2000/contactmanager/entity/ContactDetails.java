@@ -1,9 +1,12 @@
 package com.nawaz2000.contactmanager.entity;
 
+import java.util.Arrays;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -26,7 +29,8 @@ public class ContactDetails {
 	
 	private String address;
 	
-	private String image;
+	@Lob
+	private byte[] image;
 	
 	private int userid;
 	
@@ -37,7 +41,7 @@ public class ContactDetails {
 	}
 
 	public ContactDetails(String name, String gender, String email, String position, String phone, String address,
-			String image, int userid, String favourite) {
+			byte[] image, int userid, String favourite) {
 		super();
 		this.name = name;
 		this.gender = gender;
@@ -106,11 +110,11 @@ public class ContactDetails {
 		this.address = address;
 	}
 
-	public String getImage() {
+	public byte[] getImage() {
 		return image;
 	}
 
-	public void setImage(String image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
 
@@ -133,12 +137,9 @@ public class ContactDetails {
 	@Override
 	public String toString() {
 		return "ContactDetails [id=" + id + ", name=" + name + ", gender=" + gender + ", email=" + email + ", position="
-				+ position + ", phone=" + phone + ", address=" + address + ", image=" + image + ", userid=" + userid
-				+ ", favourite=" + favourite + "]";
+				+ position + ", phone=" + phone + ", address=" + address + ", image=" + Arrays.toString(image)
+				+ ", userid=" + userid + ", favourite=" + favourite + "]";
 	}
-
-	
-	
 	
 	
 }
