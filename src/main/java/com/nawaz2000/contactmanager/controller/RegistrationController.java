@@ -30,7 +30,8 @@ public class RegistrationController {
 	public String saveNewUser(Model model, @ModelAttribute(name = "newUser") User user) throws IOException {
 		System.out.println("save new user");
 		System.out.println("----------> New User:" + user);
-		userStorageService.saveUser(null, user);
+		if (userStorageService.findByEmail(user.getEmail()).isEmpty())
+			userStorageService.saveUser(null, user);
 		return "redirect:/login";
 	}
 	

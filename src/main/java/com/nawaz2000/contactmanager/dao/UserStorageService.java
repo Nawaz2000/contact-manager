@@ -15,26 +15,27 @@ public class UserStorageService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Autowired
-	private UserRepository docRepository;
-	
 	public User saveUser(MultipartFile file, User user) throws IOException {
 		if (file != null && (user.getImage() != null))
 			user.setImage(file.getBytes());
 		if(user.getId() != null)
 			user.setImage(userRepository.findById(user.getId()).get().getImage());
-		return docRepository.save(user);
+		return userRepository.save(user);
 	}
 	
 	public Optional<User> findUserById(Integer id) {
 		if (id != null) {
-			return docRepository.findById(id);
+			return userRepository.findById(id);
 		}else
 			return null;
 	}
 	
 	public Optional<User> findByUsername(String username){
-		return docRepository.findByUsername(username);
+		return userRepository.findByUsername(username);
+	}
+	
+	public Optional<User> findByEmail(String email){
+		return userRepository.findByEmail(email);
 	}
 	
 }
