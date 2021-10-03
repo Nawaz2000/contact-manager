@@ -13,10 +13,16 @@ import com.nawaz2000.contactmanager.entity.User;
 public class UserStorageService {
 	
 	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
 	private UserRepository docRepository;
 	
 	public User saveUser(MultipartFile file, User user) throws IOException {
-		user.setImage(file.getBytes());
+		if (!file.isEmpty() && (file != null))
+			user.setImage(file.getBytes());
+		if(user.getId() != null)
+			user.setImage(userRepository.findById(user.getId()).get().getImage());
 		return docRepository.save(user);
 	}
 	

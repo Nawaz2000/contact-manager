@@ -1,25 +1,12 @@
 package com.nawaz2000.contactmanager.controller;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -27,8 +14,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.ResourceUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,11 +29,9 @@ import com.nawaz2000.contactmanager.entity.User;
 public class HomeController {
 	
 //	public static String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/images";
-	public static String uploadDirectory;
 	private static int currUserId;
 	private static User pUser;
 	private List<ContactDetails> favourites;
-	private String search;
 	
 	
 	@Autowired
@@ -105,9 +88,6 @@ public class HomeController {
 		
 		// adding favourites to model
 		favourites = contactStorageService.findByFavouriteOrderByNameAsc("1");
-//		System.out.println("\n\n\nFavourites result\n\n");
-//		for (ContactDetails c : favourites)
-//			System.out.println(c);
 		model.addAttribute("favourites", favourites);
 		
 		return "home";
@@ -155,15 +135,11 @@ public class HomeController {
 	@PostMapping("/updateProfile")
 	public String updateProfile(@ModelAttribute(name = "profile") User user,
 			@RequestParam(name = "image12", required = false) MultipartFile multipartFile) throws IOException {
-		System.out.println(user);
-//		uploadDirectory = new File(".").getCanonicalPath() + "/src/main/resources/static/images";
 		
-		User retrievedUser = userStorageService.saveUser(multipartFile, user);
-				
-		userStorageService.saveUser(multipartFile, retrievedUser);
-		
-		System.out.println(user);
-		
+		System.out.println(user);		
+		User retrievedUser = userStorageService.saveUser(multipartFile, user);				
+		userStorageService.saveUser(multipartFile, retrievedUser);		
+		System.out.println(user);		
 		return "redirect:/home";
 	}
 	
@@ -206,17 +182,7 @@ public class HomeController {
 		
 //		contactDAO.save(retrievedUser);
 		
-		System.out.println(newContact);
-		
-		if (savedUser.getImage() != null) {
-			System.out.println("\n\n\n\nImage not empty");
-			Path fileNameAndPath = Paths.get(uploadDirectory, savedUser.getId() + ".jpg");
-			try {
-				Files.write(fileNameAndPath, multipartFile.getBytes());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}		
+		System.out.println(newContact);	
 		
 		
 		return "redirect:/home";
