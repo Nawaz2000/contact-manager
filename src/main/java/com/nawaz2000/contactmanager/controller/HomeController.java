@@ -1,6 +1,7 @@
 package com.nawaz2000.contactmanager.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -22,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.nawaz2000.contactmanager.dao.ContactStorageService;
 import com.nawaz2000.contactmanager.dao.UserStorageService;
+import com.nawaz2000.contactmanager.entity.Contact;
 import com.nawaz2000.contactmanager.entity.ContactDetails;
 import com.nawaz2000.contactmanager.entity.User;
 
@@ -32,7 +34,8 @@ public class HomeController {
 	private static int currUserId;
 	private static User pUser;
 	private List<ContactDetails> favourites;
-	
+	private List<Contact> contactList;
+	private List<Contact> favouriteList;
 	
 	@Autowired
 	private UserStorageService userStorageService;
@@ -76,11 +79,19 @@ public class HomeController {
 		System.out.println("Page: " + page + " UId: " + currUserId);
 		Page<ContactDetails> contacts = contactStorageService.findByUserid(currUserId, pagable);
 		
+		
+		contactList = new ArrayList<>(); 
+		
+		for (ContactDetails c : contacts) {
+			contactList.add(new Contact(c.getId(), c.getName(), c.getGender(), c.getEmail(), c.getPosition(), c.getPhone(), c.getAddress(), getImgData(c.getImage()), c.getUserid(), c.getFavourite()));
+		}
+		
+		
 		System.out.println("\n\n\n\n\n\n===========Pringting found contacts:");
 		System.out.println("Page: " + page);
 		
 		List<ContactDetails> contacts2 = contactStorageService.findByUseridOrderByNameAsc(currUserId);
-		model.addAttribute("allContacts", contacts);
+		model.addAttribute("allContacts", contactList);
 		model.addAttribute("currentPage", page);
 		model.addAttribute("totalPages", contacts.getTotalPages());
 		model.addAttribute("totalContacts", contacts2.size());
@@ -88,7 +99,12 @@ public class HomeController {
 		
 		// adding favourites to model
 		favourites = contactStorageService.findByFavouriteOrderByNameAsc("1");
-		model.addAttribute("favourites", favourites);
+		favouriteList = new ArrayList<>();
+		for (ContactDetails c : favourites) {
+			favouriteList.add(new Contact(c.getId(), c.getName(), c.getGender(), c.getEmail(), c.getPosition(), c.getPhone(), c.getAddress(), getImgData(c.getImage()), c.getUserid(), c.getFavourite()));
+		}
+		
+		model.addAttribute("favourites", favouriteList);
 		
 		return "home";
 	}
