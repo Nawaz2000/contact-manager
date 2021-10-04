@@ -455,6 +455,10 @@ input[type=text]:placeholder {
   	border-radius: 100%;
   	border: 1.5px solid #9400D3;
   }
+  
+  .list{
+  	align-content: center;
+  }
 }
 
 
