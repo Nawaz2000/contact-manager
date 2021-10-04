@@ -450,8 +450,8 @@ input[type=text]:placeholder {
   
   .avatar{
   	vertical-align: middle;
-  	width: 260px;
-  	height: 260px;
+  	width: 265px;
+  	height: 265px;
   	border-radius: 100%;
   	border: 1.5px solid #9400D3;
   }
