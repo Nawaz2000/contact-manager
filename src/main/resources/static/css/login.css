@@ -19,7 +19,7 @@ a {
 
 h2 {
   text-align: center;
-  font-size: 25px;
+  font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
   display:inline-block;
@@ -33,7 +33,6 @@ h2 {
 
 .wrapper {
   display: flex;
-  flex-flow: row wrap;
   align-items: center;
   flex-direction: column; 
   justify-content: center;
@@ -48,7 +47,7 @@ h2 {
   background: #fff;
   padding: 30px;
   width: 90%;
-  max-width: 500px;
+  max-width: 450px;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
@@ -58,7 +57,7 @@ h2 {
 
 #formFooter {
   background-color: #f6f6f6;
-  border-top: 1spx solid #dce8f1;
+  border-top: 1px solid #dce8f1;
   padding: 25px;
   text-align: center;
   -webkit-border-radius: 0 0 10px 10px;
@@ -116,7 +115,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text], [type=email], [type=tel], [type=password] {
+input[type=text], [type=password] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -126,7 +125,7 @@ input[type=text], [type=email], [type=tel], [type=password] {
   display: inline-block;
   font-size: 16px;
   margin: 5px;
-  width: 75%;
+  width: 70%;
   border: 2px solid #f6f6f6;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -137,22 +136,12 @@ input[type=text], [type=email], [type=tel], [type=password] {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=email]:focus {
-  background-color: #fff;
-  border-bottom: 2px solid #9400D3;
-}
-
-input[type=tel]:focus {
+input[type=text]:focus {
   background-color: #fff;
   border-bottom: 2px solid #9400D3;
 }
 
 input[type=password]:focus {
-  background-color: #fff;
-  border-bottom: 2px solid #9400D3;
-}
-
-input[type=text]:focus {
   background-color: #fff;
   border-bottom: 2px solid #9400D3;
 }
@@ -252,7 +241,7 @@ input[type=text]:placeholder {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #9400D3;
+  background-color: #56baed;
   content: "";
   transition: width 0.2s;
 }
