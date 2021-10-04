@@ -448,7 +448,13 @@ input[type=text]:placeholder {
     
   }  
   
-  
+  .avatar{
+  	vertical-align: middle;
+  	width: 220px;
+  	height: 220px;
+  	border-radius: 100%;
+  	border: 1.5px solid #9400D3;
+  }
 }
 
 
