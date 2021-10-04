@@ -19,7 +19,7 @@
 	<div class="container" align="center"  >
 		<div class="card2" >
 			<div class="card-body" style="color: #696969;">
-				<h2 class="card-title" id="res"><b>My Contacts -v2.0</b></h2>
+				<h2 class="card-title" id="res"><b>Contact Plus -v2.3</b></h2>
 			</h3>
 			<hr>
 			</div>
@@ -125,7 +125,7 @@
 										</div>
 									</div>
 									<a th:href="@{/updateContact(param=${contact.id})}" type="button" class="btn button1" style="color:white; margin-top: 4px;">Update</a>
-									<a th:href="@{/deleteContact(param=${contact.id})}" type="button" class="btn button2" style="color: white; margin-top: 4px;">Delete</a>
+									<a th:href="@{/deleteContact(param=${contact.id})}" onclick="return confirm('Are you sure you want to delete this item?');" type="button" class="btn button2" style="color: white; margin-top: 4px;">Delete</a>
 								</div>
 							</div>
 						</tr>
