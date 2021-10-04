@@ -113,9 +113,9 @@
 						<tr th:each="contact: ${allContacts}">
 							<div class="list-group">
 								<div href="#" class="list-group-item">
-									<div class="media">
+									<div class="media" id="media">
 										<div class="pull-left">
-											<img class="avatar2" th:src="@{'data:image/jpg;base64,'+ ${contact.image}}" alt="...">
+											<img class="avatar2" id="avatar2" th:src="@{'data:image/jpg;base64,'+ ${contact.image}}" alt="...">
 										</div>
 										<div class="media-body">
 											<h4 class="media-heading"><b th:text="${contact.name}"></b></h4> <p th:text="${contact.position}">
@@ -124,8 +124,7 @@
 												<ul class="list-unstyled">
 													<li><i class="fa fa-mars-stroke"></i><span th:text="' ' + ${contact.gender}"></span></li>
 													<li><i class="fa fa-mobile"></i><span>&nbsp;</span><a th:href="'tel:' + ${contact.phone}" th:text="${contact.phone}"></a></li>
-													<li><i class="fa fa-envelope-o"></i><span>&nbsp;</span><a th:href="'mailto:' + ${contact.email}" th:text="${contact.email}" target="_blank"></a></li>
-													
+													<li><i class="fa fa-envelope-o"></i><span>&nbsp;</span><a th:href="'mailto:' + ${contact.email}" th:text="${contact.email}" target="_blank"></a></li>													
 												</ul>												
 											</div>
 										</div>

@@ -336,3 +336,20 @@ CONTACT MODAL VIEW
     }
 }
 
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+  .form-control {
+    width: 95%;
+    text-align: center;
+    
+  }  
+}
+
