@@ -16,10 +16,17 @@ public class UserStorageService {
 	private UserRepository userRepository;
 	
 	public User saveUser(MultipartFile file, User user) throws IOException {
-		if (file != null && (user.getImage() != null))
+//		if (file != null && (user.getImage() != null))
+//			user.setImage(file.getBytes());
+//		if(user.getId() != null)
+//			user.setImage(file.getBytes());
+		if(file != null)
 			user.setImage(file.getBytes());
-		if(user.getId() != null)
+		if(file.isEmpty()) {
+			System.out.println("from database before update: " + userRepository.findById(user.getId()).get().getImage().length);
 			user.setImage(userRepository.findById(user.getId()).get().getImage());
+			
+		}
 		return userRepository.save(user);
 	}
 	

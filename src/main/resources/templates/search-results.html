@@ -83,7 +83,7 @@
 							<div class="row">
 								<form th:action="@{/search}" method="get">
 									<div class="col-md-9">
-										<input type="text" name="param" placeholder="Search people" class="form-control">
+										<input type="text" name="param" style="background-color: white;" placeholder="Search people" class="form-control">
 									</div>
 									<div class="col-md-3">
 										<div class="btn-group" style="display:block">										  						  
@@ -109,7 +109,7 @@
 								<div href="#" class="list-group-item">
 									<div class="media">
 										<div class="pull-left">
-											<img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+											<img class="avatar2" id="avatar2" th:src="@{'data:image/jpg;base64,'+ ${contact.image}}" alt="...">
 										</div>
 										<div class="media-body">
 											<h4 class="media-heading"><b th:text="${contact.name}"></b></h4> <p th:text="${contact.position}">

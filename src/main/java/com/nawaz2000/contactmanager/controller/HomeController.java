@@ -115,13 +115,18 @@ public class HomeController {
 						Model model,
 						@RequestParam(name = "page",defaultValue = "0") Integer page) {
 		
+		System.out.println("\n\nEntered search controller");
 		Pageable pageable = PageRequest.of(page, 3);
 		Page<ContactDetails> searchResult = contactStorageService.search(search, currUserId, pageable);
 		System.out.println("\n\n========================>> Search results");
 		System.out.println("total pages: " + searchResult.getTotalPages());
+		
+		
+		List<Contact> searchList = new ArrayList<>();
+		
 		for (ContactDetails c : searchResult)
-			System.out.println(c);
-		model.addAttribute("searchResults", searchResult);
+			searchList.add(new Contact(c.getId(), c.getName(), c.getGender(), c.getEmail(), c.getPosition(), c.getPhone(), c.getAddress(), getImgData(c.getImage()), c.getUserid(), c.getFavourite()));
+		model.addAttribute("searchResults", searchList);
 		model.addAttribute("favourites", favouriteList);		
 		
 		System.out.println("\n\n\n\n\n\n===========Pagination sql:");
@@ -152,10 +157,11 @@ public class HomeController {
 	public String updateProfile(@ModelAttribute(name = "profile") User user,
 			@RequestParam(name = "image12", required = false) MultipartFile multipartFile) throws IOException {
 		
-		System.out.println(user);		
+		System.out.println("User from view: " + user);
+		System.out.println("Retrieved image: " + multipartFile.getOriginalFilename() + " size: " + multipartFile.getSize());
 		User retrievedUser = userStorageService.saveUser(multipartFile, user);				
-		userStorageService.saveUser(multipartFile, retrievedUser);		
-		System.out.println(user);		
+//		userStorageService.saveUser(multipartFile, retrievedUser);		
+		System.out.println("\n\nRetrieved User: " + retrievedUser);		
 		return "redirect:/home";
 	}
 	
