@@ -165,6 +165,12 @@ public class HomeController {
 		return "redirect:/home";
 	}
 	
+	@GetMapping("/deleteProfile")
+	public String deleteProfile(@RequestParam(name = "param") Integer id) {
+		userStorageService.deleteById(id);
+		return "redirect:/login";
+	}
+	
 	
 	@GetMapping("/deleteContact")
 	public String deleteContact(@RequestParam(name = "param") String param) {

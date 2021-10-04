@@ -44,5 +44,10 @@ public class UserStorageService {
 	public Optional<User> findByEmail(String email){
 		return userRepository.findByEmail(email);
 	}
+
+	public void deleteById(Integer id) {
+		userRepository.deleteById(id);
+		
+	}
 	
 }
