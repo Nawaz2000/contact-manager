@@ -35,25 +35,25 @@ This app lets you do the following:
 
 # Example screenshots
 **Login page**<br/><br/>
-![Registration](https://github.com/Nawaz2000/contact-manager/tree/master/screenshots/registration.png)
+![Registration](https://github.com/Nawaz2000/contact-manager/blob/master/screenshots/registration.png)
 
 **Registration page**<br/><br/>
-![Login](https://github.com/Nawaz2000/contact-manager/tree/master/screenshots/login.png)
+![Login](https://github.com/Nawaz2000/contact-manager/blob/master/screenshots/login.png)
 
 **Home page**<br/><br/>
-![Home page](https://github.com/Nawaz2000/contact-manager/tree/master/screenshots/home.png)
+![Home page](https://github.com/Nawaz2000/contact-manager/blob/master/screenshots/home.png)
 
 **Add contact**<br/><br/>
-![Add contact](https://github.com/Nawaz2000/contact-manager/tree/master/screenshots/add-contact.png)
+![Add contact](https://github.com/Nawaz2000/contact-manager/blob/master/screenshots/add-contact.png)
 
 **Profile section**<br/><br/>
-![Profile](https://github.com/Nawaz2000/contact-manager/tree/master/screenshots/profile.png)
+![Profile](https://github.com/Nawaz2000/contact-manager/blob/master/screenshots/profile.png)
 
 **Search results**<br/>
-![Search](https://github.com/Nawaz2000/contact-manager/tree/master/screenshots/search.png)
+![Search](https://github.com/Nawaz2000/contact-manager/blob/master/screenshots/search.png)
 
 **Update contact**<br/><br/>
-![Update contact](https://github.com/Nawaz2000/contact-manager/tree/master/screenshots/update-contact.png)
+![Update contact](https://github.com/Nawaz2000/contact-manager/blob/master/screenshots/update-contact.png)
 
 **Footer**<br/><br/>
 
