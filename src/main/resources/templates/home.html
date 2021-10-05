@@ -114,10 +114,10 @@
 							<div class="list-group">
 								<div href="#" class="list-group-item">
 									<div class="media" id="media">
-										<div class="pull-left">
+										<div>
 											<img class="avatar2" id="avatar2" th:src="@{'data:image/jpg;base64,'+ ${contact.image}}" alt="...">
 										</div>
-										<div class="media-body">
+										<div class="media-body" id="media3">
 											<h4 class="media-heading"><b th:text="${contact.name}"></b></h4> <p th:text="${contact.position}">
 											<div class="media-content">
 												<i class="fa fa-map-marker" th:text="' ' + ${contact.address}"></i>
@@ -125,12 +125,14 @@
 													<li><i class="fa fa-mars-stroke"></i><span th:text="' ' + ${contact.gender}"></span></li>
 													<li><i class="fa fa-mobile"></i><span>&nbsp;</span><a th:href="'tel:' + ${contact.phone}" th:text="${contact.phone}"></a></li>
 													<li><i class="fa fa-envelope-o"></i><span>&nbsp;</span><a th:href="'mailto:' + ${contact.email}" th:text="${contact.email}" target="_blank"></a></li>													
-												</ul>												
+											 	</ul>												
 											</div>
 										</div>
 									</div>
-									<a th:href="@{/updateContact(param=${contact.id})}" type="button" class="btn button1" style="color:white; margin-top: 4px;">Update</a>
-									<a th:href="@{/deleteContact(param=${contact.id})}" onclick="return confirm('Are you sure you want to delete this item?');" type="button" class="btn button2" style="color: white; margin-top: 4px;">Delete</a>
+									<div class="med">
+										<a id="media2" th:href="@{/updateContact(param=${contact.id})}" type="button" class="btn button1" style="color:white; margin-top: 4px;">Update</a>
+										<a id="media2" th:href="@{/deleteContact(param=${contact.id})}" onclick="return confirm('Are you sure you want to delete this item?');" type="button" class="btn button2" style="color: white; margin-top: 4px;">Delete</a>
+									</div>
 								</div>
 							</div>
 						</tr>
