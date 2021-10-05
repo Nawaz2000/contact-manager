@@ -442,16 +442,15 @@ input[type=text]:placeholder {
 	color: #cccccc;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 480px) {
 	.search {
 		text-align: center;
 	}
 	
 	.avatar {
-		border-radius: 50%;
 		display: block;
-		margin: auto;
-		
+  		margin: auto;
+		border-radius: 50%;
 	}	
 	
 	#media{
