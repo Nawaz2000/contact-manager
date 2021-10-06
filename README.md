@@ -41,7 +41,7 @@ This app lets you do the following:
 ![Login](https://github.com/Nawaz2000/contact-manager/blob/master/screenshots/login.png)
 
 **Home page**<br/><br/>
-![Home page](https://github.com/Nawaz2000/contact-manager/blob/master/screenshots/home.png)
+![Home page](https://github.com/Nawaz2000/contact-manager/blob/master/screenshots/home-page.png)
 
 **Add contact**<br/><br/>
 ![Add contact](https://github.com/Nawaz2000/contact-manager/blob/master/screenshots/add-contact.png)
